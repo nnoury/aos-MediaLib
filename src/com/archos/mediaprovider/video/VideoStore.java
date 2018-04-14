@@ -103,10 +103,13 @@ public final class VideoStore {
         }
         Intent scanIntent = new Intent(action);
         scanIntent.setData(uri);
-        if(!UriUtils.isContentUri(uri)) // doesn't work with content
+        scanIntent.setPackage(context.getPackageName());
+        if(!UriUtils.isContentUri(uri)) { // doesn't work with content
             context.sendBroadcast(scanIntent);
-        else
+        }
+        else {
             NetworkScannerServiceVideo.startIfHandles(context, scanIntent);
+        }
     }
     private static final int ARCHOS_PARAMS_SIZE = 10;
     private static final int ARCHOS_PARAMS_MASK = (1 << ARCHOS_PARAMS_SIZE) - 1;
