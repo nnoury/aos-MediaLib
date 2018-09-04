@@ -18,6 +18,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.archos.environment.ArchosUtils;
+
 public class NetworkScanner {
 
     /** sends broadcast that triggers mediacenter-video network scanning */
